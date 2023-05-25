@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pablo Edo">
+    <meta name="description" content="HowToBuidAPC">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FinalProject</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styleinformation.css">
+    <link rel="icon" href="pictures/pccomponenteslogon.png">
+</head>
+
+<body>
+    <!--MENU-->
+    <div class="menucontainer">
+        <header class="col-7 col-s-9">
+            <a href="index.html">
+                <img id="logon" alt="pccomponenteslogon" src="pictures/pccomponenteslogon.png">
+            </a>
+            <h1>ITComponets</h1>
+        </header>
+        <nav id="menu" class="col-5 col-s-3">
+            <ul class="menu_movil menu_drop">
+                <li>
+                    <a href="#menu" class="size_icon"> <i class="fa fa-bars"></i> </a>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="page1.html">MOUNTING</a></li>
+                        <li><a href="page2.html">INSTALLATION</a></li>
+                        <li><a href="gallery1.html">PARTS</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="menucontainer menu_pc menu_drop">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="page1.html">MOUNTING</a></li>
+                <li><a href="page2.html">INSTALLATION</a></li>
+                <li><a href="gallery1.html">PARTS</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1>Computer Components</h1>
+    <div id="xml">
+        <table id="componenttable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!--Footer-->
+    <footer class="col-12 col-s-12 footerconainer">
+        <div class="footercontent">
+            <p>Why buy</p>
+            <ul>
+                <li><a href="https://www.pccomponentes.com/soporte/como-comprar-en-pccomponentes">How to buy</a></li>
+                <li><a href="https://www.pccomponentes.com/soporte/formas-de-pago">Payment methods</a></li>
+                <li><a href="https://www.pccomponentes.com/gastos-de-envio">Shipping costs</a></li>
+                <li><a href="https://www.pccomponentes.com/cupones-descuento-y-codigos-promocionales">Discount coupons</a></li>
+                <li><a href="https://www.pccomponentes.com/soporte">Frequently asked questions</a></li>
+                <li><a href="https://www.pccomponentes.com/opiniones">Customer Reviews</a></li>
+                <li><a href="https://www.pccomponentes.com/tarjetas-regalo">Gift cards</a></li>
+            </ul>
+        </div>
+        <div class="footercontent">
+            <p>Community</p>
+            <ul>
+                <li><img alt="Blog" src="pictures/pccomponenteslogon.png"><a href="https://www.pccomponentes.com/blog">Blog</a></li>
+                <li><img alt="Instagram" src="pictures/instagramlogon.png"><a href="https://www.instagram.com/pccomponentes/">Instagram</a></li>
+                <li><img alt="Twitter" src="pictures/twitterlogon.png"><a href="https://twitter.com/pccomponentes">Twitter</a></li>
+                <li><img alt="Facebook" src="pictures/facebooklogon.png"><a href="https://www.facebook.com/pccomponentes">Facebook</a></li>
+                <li><img alt="Telegram" src="pictures/telegramlogon.webp"><a href="https://t.me/pccomponentesESP">Telegram</a></li>
+                <li><img alt="YouTube" src="pictures/youtubelogon.png"><a href="https://www.youtube.com/user/PcComponentescom">YouTube</a></li>
+                <li><img alt="TikTok" src="pictures/tiktoklogon.png"><a href="https://www.tiktok.com/@pccomponentes.com">TikTok</a></li>
+                <li><img alt="Twitch" src="pictures/twitchlogon.png"><a href="https://www.twitch.tv/pccomponenteses">Twitch</a></li>
+            </ul>
+        </div>
+        <div class="footercontent">
+            <p>Who we are</p>
+            <ul>
+                <li><a href="https://www.pccomponentes.com/quienes-somos">Who we are</a></li>
+                <li><a href="https://www.pccomponentes.com/compromisos">Commitments</a></li>
+                <li><a href="https://www.pccomponentes.com/tiendas">Our stores</a></li>
+                <li><a href="https://www.facebook.com/pccomponentes">Our brands</a></li>
+                <li><a href="https://www.pccomponentes.com/nuestras-marcas">Purchase conditions</a></li>
+                <li><a href="https://www.pccomponentes.com/fabricantes">All brands</a></li>
+                <li><a href="https://www.pccomponentes.com/afiliados">Affiliates</a></li>
+                <li><a href="https://www.pccomponentes.com/aviso-legal">Legal Notice</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!--Script-->
+    <script>
+        function loadXML() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    displayData(this.responseText);
+                }
+            };
+            xmlhttp.open("GET", "information.xml", true);
+            xmlhttp.send();
+        }
+
+        function displayData(xmlString) {
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            var components = xmlDoc.getElementsByTagName("component");
+            var table = document.getElementById("componenttable");
+
+            for (var i = 0; i < components.length; i++) {
+                var component = components[i];
+                var name = component.getAttribute("name");
+                var description = component.getElementsByTagName("description")[0].textContent;
+
+                var row = table.insertRow(i + 1);
+                var nameCell = row.insertCell(0);
+                var descriptionCell = row.insertCell(1);
+
+                nameCell.innerHTML = name;
+                descriptionCell.innerHTML = description;
+            }
+        }
+
+        // Call the loadXML function when the page finishes loading
+        window.onload = loadXML;
+    </script>
+</body>
+
+</html>

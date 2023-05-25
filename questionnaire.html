@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Pablo Edo">
+    <meta name="description" content="HowToBuildAPC">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Final Project</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/stylequestionnaire.css">
+</head>
+
+<body>
+    <!--MENU-->
+    <div class="menucontainer">
+        <header class="col-7 col-s-9">
+            <a href="index.html">
+                <img id="logon" alt="pccomponenteslogon" src="pictures/pccomponenteslogon.png">
+            </a>
+            <h1>ITComponets</h1>
+        </header>
+        <nav id="menu" class="col-5 col-s-3">
+            <ul class="menu_movil menu_drop">
+                <li>
+                    <a href="#menu" class="size_icon"> <i class="fa fa-bars"></i> </a>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="page1.html">MOUNTING</a></li>
+                        <li><a href="page2.html">INSTALLATION</a></li>
+                        <li><a href="gallery1.html">PARTS</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="menucontainer menu_pc menu_drop">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="page1.html">MOUNTING</a></li>
+                <li><a href="page2.html">INSTALLATION</a></li>
+                <li><a href="gallery1.html">PARTS</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="questionnaire">
+        <h2> Questionnaire </h2>
+        <p><b>Answer the following questions:</b></p>
+        <p>1. When was the first computer build?</p>
+        <input type="date" name="discovery" id="q1">
+        <br><br>
+        <p>2.How many GB of RAM is recommended nowadays?</p>
+        <input type="number" name="RAM" min="1" max="10000" id="q2">
+        <br><br>
+        <p>3.Which one is the most powerful CPU?</p>
+        <select id="q3">
+        <option value="empty"> </option>
+        <option value="AMD Ryzen 9 7950X">AMD Ryzen 9 7950X</option>
+        <option value="i9-12900K">Intel Core i9-12900K</option>
+        <option value="Ryzen 7 5800X3D">AMD Ryzen 7 5800X3D</option>
+        <option value="i7-12700K">Intel Core i7-12700K</option>
+        <option value="Ryzen 9 5950X">AMD Ryzen 9 5950X</option>
+</select>
+        <br><br>
+        <p>4.Which one is the most powerful GPU?</p>
+        <input type="radio" name="GPU" value="RTX 4080" id="q41"> NVIDIA GeForce RTX 4080<br>
+        <input type="radio" name="GPU" value="RX 7900 XTX" id="q42"> AMD Radeon RX 7900 XTX<br>
+        <input type="radio" name="GPU" value="Correct" id="q43">NVIDIA GeForce RTX 4090 Ti<br>
+        <input type="radio" name="GPU" value="RX 7800 XT" id="q44"> AMD Radeon RX 7800 XT<br>
+        <input type="radio" name="GPU" value="Arc A750" id="q45"> Intel Arc A750<br>
+        <br><br>
+        <p>5.Where are you going to buy your next computer?</p>
+        <input type="checkbox" name="store" value="itcomponents" id="q51">In ITCOMPONENTS <br>
+
+        <input type="checkbox" name="store" value="pccomponentes" id="q52">In PcComponentes <br>
+
+        <input type="checkbox" name="store" value="appinformatica" id="q53">In AppInformatica <br>
+
+        <input type="checkbox" name="store" value="elcorteingles" id="q54">In ElCorteIngles<br>
+        <br>
+        <button onclick="check()">Check</button>
+        <p id="mark"></p>
+        <p id="feedback"></p>
+    </div>
+    <script>
+        function check() {
+            var q1 = document.getElementById("q1").value;
+            var q2 = document.getElementById("q2").value;
+            var q3 = document.getElementById("q3").value;
+            var q41 = document.getElementById("q41").checked;
+            var q42 = document.getElementById("q42").checked;
+            var q43 = document.getElementById("q43").checked;
+            var q44 = document.getElementById("q44").checked;
+            var q45 = document.getElementById("q45").checked;
+            var q51 = document.getElementById("q51").checked;
+            var q52 = document.getElementById("q52").checked;
+            var q53 = document.getElementById("q53").checked;
+            var q54 = document.getElementById("q54").checked;
+
+            var mark = 0;
+            var feedback = "Feedback: <br>";
+
+            // Question 1: check a date
+            if (q1 === "1945-12-10") {
+                mark++;
+                feedback += "Question 1: Correct<br>";
+            } else if (q1 === "") {
+                feedback += "Question 1: You didn't provide an answer<br>";
+            } else {
+                feedback += "Question 1: Incorrect<br>";
+            }
+
+            // Question 2: check a number
+            if (q2 === "16") {
+                mark++;
+                feedback += "Question 2: Correct<br>";
+            } else if (q2 === "") {
+                feedback += "Question 2: You didn't provide an answer<br>";
+            } else {
+                feedback += "Question 2: Incorrect<br>";
+            }
+
+            // Question 3: check a text or string
+            if (q3 === "AMD Ryzen 9 7950X") {
+                mark++;
+                feedback += "Question 3: Correct<br>";
+            } else if (q3 === "") {
+                feedback += "Question 3: You didn't provide an answer<br>";
+            } else {
+                feedback += "Question 3: Incorrect<br>";
+            }
+
+            // Question 4: check a radio input
+            if (q43) {
+                mark++;
+                feedback += "Question 4: Correct<br>";
+            } else if (!q41 && !q42 && !q43 && !q44 && !q45) {
+                feedback += "Question 4: You didn't provide an answer<br>";
+            } else {
+                feedback += "Question 4: Incorrect<br>";
+            }
+
+
+            // Question 5: any option is correct, so we check if the user has chosen any option
+            if (q51 || q52 || q53 || q54) {
+                mark++;
+                feedback += "Question 5: Correct<br>";
+            } else {
+                feedback += "Question 5: You didn't provide an answer<br>";
+            }
+
+            document.getElementById("mark").innerHTML = "Final mark: " + mark + "/5";
+            document.getElementById("feedback").innerHTML = feedback;
+        }
+    </script>
+    <footer class="col-12 col-s-12 footerconainer">
+        <div class="footercontent">
+            <p>Why buy</p>
+            <ul>
+                <li><a href="https://www.pccomponentes.com/soporte/como-comprar-en-pccomponentes">How to buy</a></li>
+                <li><a href="https://www.pccomponentes.com/soporte/formas-de-pago">Payment methods</a></li>
+                <li><a href="https://www.pccomponentes.com/gastos-de-envio">Shipping costs</a></li>
+                <li><a href="https://www.pccomponentes.com/cupones-descuento-y-codigos-promocionales">Discount coupons</a></li>
+                <li><a href="https://www.pccomponentes.com/soporte">Frequently asked questions</a></li>
+                <li><a href="https://www.pccomponentes.com/opiniones">Customer Reviews</a></li>
+                <li><a href="https://www.pccomponentes.com/tarjetas-regalo">Gift cards</a></li>
+            </ul>
+        </div>
+        <div class="footercontent">
+            <p>Community</p>
+            <ul>
+                <li><img alt="Blog" src="pictures/pccomponenteslogon.png"><a href="https://www.pccomponentes.com/blog">Blog</a></li>
+                <li><img alt="Instagram" src="pictures/instagramlogon.png"><a href="https://www.instagram.com/pccomponentes/">Instagram</a></li>
+                <li><img alt="Twitter" src="pictures/twitterlogon.png"><a href="https://twitter.com/pccomponentes">Twitter</a></li>
+                <li><img alt="Facebook" src="pictures/facebooklogon.png"><a href="https://www.facebook.com/pccomponentes">Facebook</a></li>
+                <li><img alt="Telegram" src="pictures/telegramlogon.webp"><a href="https://t.me/pccomponentesESP">Telegram</a></li>
+                <li><img alt="YouTube" src="pictures/youtubelogon.png"><a href="https://www.youtube.com/user/PcComponentescom">YouTube</a></li>
+                <li><img alt="TikTok" src="pictures/tiktoklogon.png"><a href="https://www.tiktok.com/@pccomponentes.com">TikTok</a></li>
+                <li><img alt="Twitch" src="pictures/twitchlogon.png"><a href="https://www.twitch.tv/pccomponenteses">Twitch</a></li>
+            </ul>
+        </div>
+        <div class="footercontent">
+            <p>Who we are</p>
+            <ul>
+                <li><a href="https://www.pccomponentes.com/quienes-somos">Who we are</a></li>
+                <li><a href="https://www.pccomponentes.com/compromisos">Commitments</a></li>
+                <li><a href="https://www.pccomponentes.com/tiendas">Our stores</a></li>
+                <li><a href="https://www.facebook.com/pccomponentes">Our brands</a></li>
+                <li><a href="https://www.pccomponentes.com/nuestras-marcas">Purchase conditions</a></li>
+                <li><a href="https://www.pccomponentes.com/fabricantes">All brands</a></li>
+                <li><a href="https://www.pccomponentes.com/afiliados">Affiliates</a></li>
+                <li><a href="https://www.pccomponentes.com/aviso-legal">Legal Notice</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

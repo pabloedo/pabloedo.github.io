@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pablo Edo">
+    <meta name="description" content="HowToBuidAPC">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FinalProject</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="https://yt3.googleusercontent.com/ytc/AL5GRJW-qNP6nfbOJ_XuZ2wLEnUIlWY2n2US5rFPXryMVA=s900-c-k-c0x00ffffff-no-rj">
+</head>
+
+<body>
+    <button id="return"><a href="index.html">Return to homepage</a></button>
+    <div class="login-box col-8 col-s-8">
+        <h2>Login</h2>
+        <form>
+          <div class="user-box">
+            <label for="user">Username</label><br>
+            <input type="text" id="user">
+          </div>
+          <div class="user-box">
+            <label for="password">Password</label><br>
+            <input type="password" id="password">
+          </div>
+        
+        </form>
+        <div class="buttoncontainer col-12 col-s-12" >
+        <button id="submit" onclick="submit()">Submit </button>
+        <button id="fpassword" onclick="fpassword()">I've forgotten my password</button>
+        </div>
+    </div>
+    <script>
+        function submit() {
+  var user = document.getElementById("user").value;
+  var password = document.getElementById("password").value;
+
+  // Check if the username and password are empty strings.
+  if (user == "" || password == "") {
+    alert("You have to introduce a username and a password");
+  } else if(password.length < 8){
+    alert("Incorrect password, try again.");
+
+  } else{
+    alert("You have logged in successfully");
+    window.location.href = "index.html";
+  }
+}
+      function fpassword(){
+        var fpassword=document.getElementById("fpassword").value;
+        alert("We have sent you an email to reset your password");
+        window.location.href = "http://mail.google.com/mail?hl=es";
+      }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+                /*universal selector*/
+                
+                * {
+                    box-sizing: border-box;
+                }
+                /*element selector*/
+                
+                header,
+                section,
+                aside,
+                footer,
+                nav li {
+                    padding: 2%;
+                    border: 1px solid white;
+                }
+                
+                nav ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                nav li {
+                    height: 25%;
+                }
+                /*MENU*/
+                
+                .menucontainer {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                
+                h1 {
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                }
+                
+                header {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                }
+
+                #logon{
+                    width: 50%;
+                }
+                /*FOOTER CONFIGURATION*/
+                
+                footer ul {
+                    list-style-type: none;
+                }
+                
+                footer a {
+                    color: grey;
+                    text-decoration: none;
+                }
+                
+                footer a:visited {
+                    color: rgb(143, 69, 69);
+                }
+                
+                footer a:hover {
+                    color: orangered;
+                }
+                
+                footer {
+                    background-color: rgb(32, 32, 32);
+                }
+                
+                footer p {
+                    color: white;
+                    font-weight: bold;
+                }
+                
+                footer img {
+                    width: 25px;
+                }
+                
+                .footerconainer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: center;
+                    justify-content: space-around;
+                }
+                
+                .footercontent {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                }
+                /* For mobile phones: */
+                
+                [class*="col-"] {
+                    width: 100%;
+                }
+                /*Desplegable menu*/
+                
+                nav ul {
+                    display: flex;
+                    flex-direction: row;
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                aside form {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                }
+                
+                .size_icon {
+                    font-size: 25px;
+                }
+                
+                .menu_drop>li>a {
+                    background-color: #333;
+                    color: white;
+                    padding: 10px;
+                    display: block;
+                    text-decoration: none;
+                    min-width: 50px;
+                    text-align: center;
+                }
+                /*Nested list*/
+                
+                .menu_drop>li>ul>li>a {
+                    background-color: #333;
+                    color: white;
+                    padding: 10px;
+                    display: block;
+                    text-decoration: none;
+                    min-width: 100px;
+                    text-align: center;
+                }
+                /*List and nested list*/
+                
+                .menu_drop li>a:hover {
+                    color: black;
+                    background-color: lightgrey;
+                }
+                /*By default the nested list is hidden*/
+                
+                .menu_drop>li>ul {
+                    display: none;
+                    position: absolute;
+                    /*the dropdown is over the content*/
+                }
+                /*When you (hovering) roll the cursor over the item, the drop-down-menu appears*/
+                
+                .menu_drop>li:hover>ul {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .menu_pc {
+                    display: none;
+                }
+                
+            
+                @media only screen and (min-width: 400px) {
+                    /* For tablets: */
+                    .col-s-1 {
+                        width: 8.33%;
+                    }
+                    .col-s-2 {
+                        width: 16.66%;
+                    }
+                    .col-s-3 {
+                        width: 25%;
+                    }
+                    .col-s-4 {
+                        width: 33.33%;
+                    }
+                    .col-s-5 {
+                        width: 41.66%;
+                    }
+                    .col-s-6 {
+                        width: 50%;
+                    }
+                    .col-s-7 {
+                        width: 58.33%;
+                    }
+                    .col-s-8 {
+                        width: 66.66%;
+                    }
+                    .col-s-9 {
+                        width: 75%;
+                    }
+                    .col-s-10 {
+                        width: 83.33%;
+                    }
+                    .col-s-11 {
+                        width: 91.66%;
+                    }
+                    .col-s-12 {
+                        width: 100%;
+                    }
+                    .links {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    li {
+                        width: 100%;
+                    }
+                    .menu_movil {
+                        display: none;
+                    }
+                    .menu_pc {
+                        display: flex;
+                    }
+                    nav ul {
+                        background-color: #333;
+                    }
+                }
+                
+                @media only screen and (min-width: 768px) {
+                    /* For desktop: */
+                    .col-1 {
+                        width: 8.33%;
+                    }
+                    .col-2 {
+                        width: 16.66%;
+                    }
+                    .col-3 {
+                        width: 25%;
+                    }
+                    .col-4 {
+                        width: 33.33%;
+                    }
+                    .col-5 {
+                        width: 41.66%;
+                    }
+                    .col-6 {
+                        width: 50%;
+                    }
+                    .col-7 {
+                        width: 58.33%;
+                    }
+                    .col-8 {
+                        width: 66.66%;
+                    }
+                    .col-9 {
+                        width: 75%;
+                    }
+                    .col-10 {
+                        width: 83.33%;
+                    }
+                    .col-11 {
+                        width: 91.66%;
+                    }
+                    .col-12 {
+                        width: 100%;
+                    }
+                    .reverse {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        flex-wrap: wrap;
+                    }
+                    nav ul {
+                        background-color: #333;
+                    }
+                }

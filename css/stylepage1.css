@@ -1,0 +1,54 @@
+#intromount {
+    width: 100%;
+}
+
+.picturegroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+textarea {
+    border: solid black 3px;
+    background-color: #d3ffffab;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+aside {
+    background-color: #333333ab;
+    border-radius: 15px;
+}
+
+section p {
+    color: white;
+    font-style: arial;
+}
+
+.imgfull {
+    width: 50%;
+}
+
+#video {
+    width: 100%;
+    height: 250px;
+}
+
+article{
+    background-color: #262a5663;
+    border-radius: 15px;
+}
+
+button{
+    border-radius: 15px;
+}
+/*IFRAME CONFIGURATION*/
+
+iframe {
+    width: 100%;
+    height: 315PX;
+}

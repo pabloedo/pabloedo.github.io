@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pablo Edo">
+    <meta name="description" content="HowToBuidAPC">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FinalProject</title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/signin.css">
+    <link rel="icon" href="https://yt3.googleusercontent.com/ytc/AL5GRJW-qNP6nfbOJ_XuZ2wLEnUIlWY2n2US5rFPXryMVA=s900-c-k-c0x00ffffff-no-rj">
+</head>
+
+<body>
+    <div id="login-box">
+        <div class="left">
+            <h1>Sign up</h1>
+
+            <input type="text" id="username" placeholder="Username" />
+            <input type="text" id="email" placeholder="E-mail" />
+            <input type="password" id="password1" placeholder="Password" />
+            <input type="password" id="password2" placeholder="Retype password" />
+
+            <button id="signup" onclick="Validation()">Sign me up</button>
+        </div>
+
+        <div class="right">
+            <span class="loginwith">Sign in with<br></span>
+
+            <button onclick="Facebook()" class="social-signin facebook">Sign up with facebook</button>
+            <button onclick="Twitter()" class="social-signin twitter">Sign up with Twitter</button>
+            <button onclick="Google()" class="social-signin google">Sign up with Google</button>
+        </div>
+        <div class="or">OR</div>
+    </div>
+    <script>
+        function Validation() {
+            var user = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password1 = document.getElementById("password1").value;
+            var password2 = document.getElementById("password2").value;
+
+            if (user == "" || email == "" || password1 == "" || password2 == "") {
+                alert("Introuce the information in each gap.");
+            } else if (password1.length < 8) {
+                alert("Password must be at least 8 characters.");
+            } else if (password1 !== password2) {
+                alert("Passwords does not match.")
+            } else if (email.indexOf("@") === -1) {
+                alert("Email must contain '@' symbol");
+            } else {
+                alert("Validate the email we have sent you.")
+            }
+        }
+
+        function Facebook() {
+            window.location.href = "https://es-es.facebook.com/"
+        }
+
+        function Google() {
+            window.location.href = "https://accounts.google.com/v3/signin/identifier?dsh=S-821759637%3A1684156240420878&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=Af_xneHBEgBpuN84eFXI-mVEU9Jwyet4aUSeWM9y-j6scdWHvNtEVvMkI8PZYqg6KOoG_G2FsO-Z_Q&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+        }
+
+        function Twitter() {
+            window.location.href = "https://twitter.com/i/flow/login"
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE computer_components [
+    <!ELEMENT computer_components (component+)>
+    <!ELEMENT component (name, description)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ATTLIST component
+        name CDATA #REQUIRED>
+]>
+<computer_components>
+    <component name="CPU">
+        <name>CPU</name>
+        <description>The central processing unit (CPU) is the brain of the computer. It is responsible for carrying out instructions and processing data.</description>
+    </component>
+    <component name="GPU">
+        <name>GPU</name>
+        <description>The graphics processing unit (GPU) is responsible for rendering graphics. It is used for gaming, video editing, and other graphics-intensive tasks.</description>
+    </component>
+    <component name="RAM">
+        <name>RAM</name>
+        <description>Random access memory (RAM) is used to store data that the CPU is currently working on. The more RAM a computer has, the faster it can run.</description>
+    </component>
+    <component name="Storage">
+        <name>Storage</name>
+        <description>Storage is used to store data permanently. There are two main types of storage: hard drives and solid state drives (SSDs). Hard drives are cheaper but slower than SSDs.</description>
+    </component>
+    <component name="Power supply">
+        <name>Power supply</name>
+        <description>The power supply provides power to the other components in the computer. It is important to choose a power supply that is powerful enough to support the other components in your computer.</description>
+    </component>
+    <component name="Motherboard">
+        <name>Motherboard</name>
+        <description>The motherboard is the main circuit board in the computer. It connects all of the other components together.</description>
+    </component>
+    <component name="Case">
+        <name>Case</name>
+        <description>The case is the enclosure that houses all of the other components in the computer. It protects the components from dust and other damage.</description>
+    </component>
+</computer_components>

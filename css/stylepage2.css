@@ -1,0 +1,14 @@
+/*TABLE CONFIGURATION*/
+
+th {
+    background-color: rgba(85, 85, 245, 0.582);
+}
+
+th,
+td,
+table {
+    border: solid black 1px;
+    border-collapse: collapse;
+    padding: 10px;
+    margin: 10px;
+}
